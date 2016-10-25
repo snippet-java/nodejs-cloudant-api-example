@@ -21,9 +21,9 @@ stages:
   - name: Deploy to dev
     type: deployer
     target:
+      region_id: '${REGION_ID}'
       organization: '${CF_ORGANIZATION}'
       space: '${CF_SPACE}'
-      url: '${CF_TARGET_URL}'
       application: '${CF_APP}'
     script: |-
       #!/bin/bash
