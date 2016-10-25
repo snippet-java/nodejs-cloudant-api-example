@@ -1,4 +1,4 @@
-Node.js Cloudant Example
+Node.js Cloudant API Example
 ====================================
 
 ### Cloudant in BlueMix
@@ -22,15 +22,18 @@ app from this repository, they will share the same Cloudant instance.
 
 ### Create, Read, Update, Delete (CRUD)
 
-This repository includes examples on the CRUD operations as API. You should be able to
-create database, create documents, list all documents, read single document, 
-update single document, and delete single document using the API.
+This repository includes examples on the CRUD operations as APIs. It support both GET and POST requests.
+You should be able to create database, create documents, list all documents, read single document, 
+update single document, and delete single document using the APIs.
 
 If you do clone this repository, make sure you update this `README.md` file to point
 the `Deploy to Bluemix` button at your repository.
 
 If you want to change the name of the Cloudant instance that gets created, the memory
 allocated to the application or other deploy-time options, have a look in `manifest.yml` and `.bluemix/pipeline.yml`.
+
+The method used in `.bluemix/pipeline.yml` will create an actual pipeline in DevOps.
+Where else the method used in the `manifest.yml` is a previous way to create a service. 
 
 ### Privacy Notice
 
