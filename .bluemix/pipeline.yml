@@ -21,10 +21,10 @@ stages:
   - name: Deploy to dev
     type: deployer
     target:
-      organization: ${CF_ORGANIZATION}
-      space: ${CF_SPACE}
-      url: ${CF_TARGET_URL}
-      application: ${CF_APP}
+      organization: '${CF_ORGANIZATION}'
+      space: '${CF_SPACE}'
+      url: '${CF_TARGET_URL}'
+      application: '${CF_APP}'
     script: |-
       #!/bin/bash
 	  cf create-service cloudantNoSQLDB Lite sample-cloudantNoSQLDB
