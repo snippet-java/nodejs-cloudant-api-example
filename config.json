@@ -1,0 +1,7 @@
+{
+	"cloudant" : {
+		"username" : "",
+  		"password" : "",
+  		"dbName" : "student"
+  	}
+}

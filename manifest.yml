@@ -1,0 +1,13 @@
+applications:
+- name: NodeCloudantAPIExample
+  memory: 256M
+  disk_quota: 512M
+  host: NodeCloudantAPIExample-${random-word}
+  command: node app.js
+  buildpack: sdk-for-nodejs
+  services:
+  - sample-cloudantNoSQLDB
+declared-services:
+  sample-cloudantNoSQLDB:
+    label: cloudantNoSQLDB
+    plan:  Lite
