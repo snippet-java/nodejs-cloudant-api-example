@@ -59,7 +59,7 @@ app.get(["/create","/insert","/add"], function(req, res) {
 	
 	var doc = {
 		"name" : "John",
-		"studentId" : "ID#" + Math.floor(Math.random()*10000)
+		"studentId" : generateStudentID()
 	}
 	
 	if (_id) doc._id = _id
@@ -135,12 +135,12 @@ app.all(["/update","/modify"], function(req, res) {
 
 			var old_doc = data;
 			var doc = data;
-			doc["studentId"] = "ID#" + Math.floor(Math.random()*10000);
+			doc["studentId"] = generateStudentID();
 			for (var key in req.body) {
-				doc[key] = req.body[key]
+				doc[key] = req.body[key];
 			}
 			for (var key in req.query) {
-				doc[key] = req.query[key]
+				doc[key] = req.query[key];
 			}
 			
 			// use insert to modify existing doc by id, if there's any,
@@ -162,7 +162,7 @@ app.all(["/update","/modify"], function(req, res) {
 			}
 			
 			var old_doc = data;
-			var doc = data;
+ 			var doc = data;
 			for (var key in req.body) {
 				doc[key] = req.body[key]
 			}
@@ -228,6 +228,10 @@ app.all(["/delete","/destroy","/remove"], function(req, res) {
 	}
 })
 
+
+function generateStudentID() {
+	return "ID#" + Math.floor(Math.random()*10000);
+}
 
 // get a random document from the list if no specific document id is selected
 function getRandomDocument(cb) {
