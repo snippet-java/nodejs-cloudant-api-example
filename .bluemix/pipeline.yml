@@ -27,9 +27,7 @@ stages:
       # View logs
       #cf logs "${CF_APP}" --recent
     target:
-      region_id: "${REGION_ID}"
-      organization: "${CF_ORGANIZATION}"
-      space: "${CF_SPACE}"
-      application: "${CF_APP}"
-      url: "${CF_TARGET_URL}"
-      
+      organization: ${CF_ORGANIZATION}
+      space: ${CF_SPACE}
+      url: ${CF_TARGET_URL}
+      application: ${CF_APP}
