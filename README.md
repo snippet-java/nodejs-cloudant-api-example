@@ -30,7 +30,7 @@ If you do clone this repository, make sure you update this `README.md` file to p
 the `Deploy to Bluemix` button at your repository.
 
 If you want to change the name of the Cloudant instance that gets created, the memory
-allocated to the application or other deploy-time options, have a look in `manifest.yml`.
+allocated to the application or other deploy-time options, have a look in `manifest.yml` and `.bluemix/pipeline.yml`.
 
 ### Privacy Notice
 
