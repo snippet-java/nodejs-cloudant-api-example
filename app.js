@@ -1,7 +1,6 @@
 var express = require('express');
 var http = require('http');
 var app = express();
-
 var bodyParser = require('body-parser');
 
 var Cloudant = require('cloudant');
@@ -33,14 +32,14 @@ var db = cloudant.db.use(config.cloudant.dbName);
 app.all(["/createdb"], function(req, res) {
 	// by default, will create a collection called student
 	// or accepts dbname value from from POST or GET
-	var name = req.query.dbname || req.body.dbname || config.cloudant.dbName || "";
-	cloudant.db.create(name, function(err, data) {
+	var dbname = req.query.dbname || req.body.dbname || config.cloudant.dbName || "";
+	cloudant.db.create(dbname, function(err, data) {
 		if (err) {
 			res.json({err:err});
 			return;
 		}
 		
-		db = cloudant.db.use(name);
+		db = cloudant.db.use(dbname);
 		
 		res.json({data:data});
 	});
@@ -226,6 +225,20 @@ app.all(["/delete","/destroy","/remove"], function(req, res) {
 			});
 		});
 	}
+})
+
+app.all(["/deletedb","/destroydb","/removedb"], function(req, res) {
+	// deletes the student collection,
+	// accepts database name value from POST & GET
+	var dbname = req.query.dbname || req.body.dbname || config.cloudant.dbName || "";
+	cloudant.db.destroy(dbname, function(err, data) {
+		if (err) {
+			res.json({err:err});
+			return;
+		}
+		
+		res.json({data:data});
+	});
 })
 
 
