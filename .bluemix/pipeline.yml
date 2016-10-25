@@ -23,11 +23,11 @@ stages:
     target:
       organization: ${CF_ORGANIZATION}
       space: ${CF_SPACE}
-      ur: ${CF_TARGET_URL}
+      url: ${CF_TARGET_URL}
       application: ${CF_APP}
     script: |-
       #!/bin/bash
 	  cf create-service cloudantNoSQLDB Lite sample-cloudantNoSQLDB
       cf push "${CF_APP}"
       # View logs
-      cf logs "${CF_APP}" --recent
+      #cf logs "${CF_APP}" --recent
