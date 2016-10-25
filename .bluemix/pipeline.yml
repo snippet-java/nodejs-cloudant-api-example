@@ -21,13 +21,14 @@ stages:
   - name: Deploy to dev
     type: deployer
     target:
-      region_id: '${REGION_ID}'
-      organization: '${CF_ORGANIZATION}'
-      space: '${CF_SPACE}'
-      application: '${CF_APP}'
+      region_id: ${REGION_ID}
+      organization: ${CF_ORGANIZATION}
+      space: ${CF_SPACE}
+      application: ${CF_APP}
     script: |-
       #!/bin/bash
-	  cf create-service cloudantNoSQLDB Lite sample-cloudantNoSQLDB
+      cf create-service cloudantNoSQLDB Lite sample-cloudantNoSQLDB
       cf push "${CF_APP}"
       # View logs
       #cf logs "${CF_APP}" --recent
+      
