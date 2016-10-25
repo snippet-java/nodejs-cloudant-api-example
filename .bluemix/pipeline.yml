@@ -1,6 +1,6 @@
 ---
 stages:
-- name: Build Stage
+- name: "Build Stage"
   inputs:
   - type: git
     branch: master
@@ -9,22 +9,22 @@ stages:
   jobs:
   - name: Build
     type: builder
-    artifact_dir: ''
-- name: Deploy Stage
+    artifact_dir: ""
+- name: "Deploy Stage"
   inputs:
   - type: job
-    stage: Build Stage
+    stage: "Build Stage"
     job: Build
   triggers:
   - type: stage
   jobs:
-  - name: Deploy to dev
+  - name: "Deploy to dev"
     type: deployer
     target:
-      region_id: ${REGION_ID}
-      organization: ${CF_ORGANIZATION}
-      space: ${CF_SPACE}
-      application: ${CF_APP}
+      region_id: "${REGION_ID}"
+      organization: "${CF_ORGANIZATION}"
+      space: "${CF_SPACE}"
+      application: "${CF_APP}"
     script: |-
       #!/bin/bash
       cf create-service cloudantNoSQLDB Lite sample-cloudantNoSQLDB
