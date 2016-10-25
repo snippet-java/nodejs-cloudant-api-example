@@ -3,10 +3,10 @@ Node.js Cloudant Example
 
 ### Cloudant in BlueMix
 
-This repository is an example Cloudant application that can be deployed into
+This repository is an example Cloudant API enabled application that can be deployed into
 Bluemix with only a couple clicks. Try it out for yourself right now by clicking:
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/snippet-java/nodejs-cloudant-example.git)
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/snippet-java/nodejs-cloudant-api-example.git)
 
 ### How does this work?
 
@@ -22,12 +22,9 @@ app from this repository, they will share the same Cloudant instance.
 
 ### Create, Read, Update, Delete (CRUD)
 
-This repository includes examples on the CRUD operations. You should be able to
+This repository includes examples on the CRUD operations as API. You should be able to
 create database, create documents, list all documents, read single document, 
-update single document, and delete single document.
-
-The web content you get when you go to the application's URL is stored under the
-`public` directory.
+update single document, and delete single document using the API.
 
 If you do clone this repository, make sure you update this `README.md` file to point
 the `Deploy to Bluemix` button at your repository.
