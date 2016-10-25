@@ -27,7 +27,7 @@ stages:
       application: ${CF_APP}
     script: |-
       #!/bin/bash
-	  cf create-service cloudantNoSQLDB Shared sample-cloudantNoSQLDB
+	  cf create-service cloudantNoSQLDB Lite sample-cloudantNoSQLDB
       cf push "${CF_APP}"
       # View logs
       cf logs "${CF_APP}" --recent
