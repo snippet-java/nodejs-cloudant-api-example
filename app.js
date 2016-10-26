@@ -45,7 +45,7 @@ app.all(["/createdb"], function(req, res) {
 	});
 })
 
-app.get(["/create","/insert","/add"], function(req, res) {
+app.all(["/create","/insert","/add"], function(req, res) {
 	//creates a default student document with the name John & random studentId.
 	//accepts any key-value pair from POST & GET and assign to the doc as well.
 	var _id = req.query._id || req.query.id || req.body._id || req.body.id || "";
@@ -91,8 +91,7 @@ app.all(["/list"], function(req, res) {
 })
 
 app.all(["/read","/get"], function(req, res) {
-	//read a document specified by the id in GET or POST.
-	//If none is specified, will read a random document from the list.
+	//read a document specified by the id in GET or POST
 	var _id = req.query._id || req.query.id || req.body._id || req.body.id || "";
 	if (_id != "") {
 		db.get(_id, function(err, data) {
@@ -104,14 +103,7 @@ app.all(["/read","/get"], function(req, res) {
 			res.json({data:data});
 		});
 	} else {
-		getRandomDocument(function(err, data) {
-			if (err) {
-				res.json({err:err});
-				return;
-			}
-
-			res.json({data:data});
-		});
+		res.json({err:"Please specify an id or _id to read"});
 	}
 })
 
@@ -154,39 +146,13 @@ app.all(["/update","/modify"], function(req, res) {
 			});
 		});
 	} else {
-		getRandomDocument(function(err, data) {
-			if (err) {
-				res.json({err:err});
-				return;
-			}
-			
-			var old_doc = data;
- 			var doc = data;
-			for (var key in req.body) {
-				doc[key] = req.body[key]
-			}
-			for (var key in req.query) {
-				doc[key] = req.query[key]
-			}
-			
-			// use insert to modify existing doc by id, if there's any,
-			// otherwise it'll create new doc
-			db.insert(doc, function(err, data) {
-				if (err) {
-					res.json({err:err});
-					return;
-				}	
-
-				res.json({old_doc:old_doc,doc:doc,data:data});
-			});
-		});
+		res.json({err:"Please specify an id or _id to update"});
 	}
 })
 
 
 app.all(["/delete","/destroy","/remove"], function(req, res) {
 	// deletes a student document based on the id,
-	// otherwise, randomly delete 1 document
 	// accepts value from POST & GET
 	var _id = req.query._id || req.query.id ||  req.body._id || req.body.id || "";
 
@@ -208,22 +174,7 @@ app.all(["/delete","/destroy","/remove"], function(req, res) {
 			});
 		});
 	} else {
-		getRandomDocument(function(err, data) {
-			if (err) {
-				res.json({err:err});
-				return;
-			}
-
-			var doc = data;
-			db.destroy(doc._id, doc._rev, function(err, data) {
-				if (err) {
-					res.json({err:err});
-					return;
-				}
-
-				res.json({deleted_doc:doc,data:data});
-			});
-		});
+		res.json({err:"Please specify an id or _id to delete"});
 	}
 })
 
