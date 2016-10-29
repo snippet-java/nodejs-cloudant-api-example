@@ -8,6 +8,7 @@ Bluemix with only a couple clicks. Try it out for yourself right now by clicking
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/snippet-java/nodejs-cloudant-api-example.git)
 
+
 ### How does this work?
 
 When you click the button, you are taken to Bluemix where you get a pick a name
@@ -34,6 +35,16 @@ allocated to the application or other deploy-time options, have a look in `manif
 
 The method used in `.bluemix/pipeline.yml` will create an actual pipeline in DevOps.
 Where else the method used in the `manifest.yml` is a previous way to create a service. 
+
+
+### Running locally or using different Cloudant database
+
+If you want to run the app locally, you will need to populate the `services.json` file with the appropriate values,
+such as the username and password.
+
+If you want to use a different Cloudant instance (not from Bluemix), you will need to populate the `services.json` and remove
+`/services.json` from the `.cfignore` file in order to push it using `cf push` or deploy from JazzHub.
+
 
 ### Privacy Notice
 
