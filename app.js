@@ -45,7 +45,7 @@ var db = require('./lib/cloudant/db.js');
 app.all(db.paths.createDB, db.createDB);
 
 //==== CREATE / INSERT DOCUMENT ================================//
-// curl <url>/cloudant/create                                   //
+// curl <url>/cloudant/set                                      //
 //==============================================================//
 app.all(db.paths.create, db.create);
 
@@ -55,7 +55,7 @@ app.all(db.paths.create, db.create);
 app.all(db.paths.list, db.list);
 
 //==== READ 1 DOCUMENT BASED ON ID =============================//
-// curl <url>/cloudant/read?id=3                                //
+// curl <url>/cloudant/get?id=3                                 //
 //==============================================================//
 app.all(db.paths.read, db.read);
 
