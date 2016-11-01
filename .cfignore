@@ -1,0 +1,6 @@
+/node_modules/
+/.project
+/.gitignore
+/.cfignore
+/README.md
+/services.json
