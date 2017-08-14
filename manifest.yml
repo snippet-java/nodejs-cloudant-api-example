@@ -1,5 +1,5 @@
 applications:
-- name: NodeCloudantAPIExample
+- name: NodeCloudantAPIExamplesabri
   memory: 256M
   disk_quota: 512M
   host: NodeCloudantAPIExample-${random-word}
