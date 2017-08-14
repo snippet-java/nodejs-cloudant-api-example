@@ -6,8 +6,8 @@ applications:
   command: node app.js
   buildpack: sdk-for-nodejs
   services:
-  - sample-cloudantNoSQLDB
+  - databasecloudant
 declared-services:
-  sample-cloudantNoSQLDB:
+  databasecloudant:
     label: cloudantNoSQLDB
     plan:  Lite
