@@ -29,7 +29,7 @@ if (JSON.stringify(cloudantCreds) == "{}") {
 var dbConfig = {
 	account : cloudantCreds.username || services.cloudant.username || "", 
 	password : cloudantCreds.password || services.cloudant.password || "",
-	dbName : services.cloudant.dbName || "stude nt"
+	dbName : services.cloudant.dbName || "student"
 };
 
 var cloudant = Cloudant(dbConfig);
